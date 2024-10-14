@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet"  href= "{{ url_for('static',filename='styles/style_neither.css') }}">
+	<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Your submission!</title>
+</head>
+<body>
+	<header>
+	<h1>Hello {{ name }}!</h1>
+	</header>
+	
+	<main>
+	<p>Name: {{ name }}</p>
+	<p>Age: {{ age }}</p>
+	<p>You think that: {{ pet }}</p>
+	</main>
+
+</body>
+</html>

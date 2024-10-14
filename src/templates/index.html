@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet"  href= "{{ url_for('static',filename='styles/style.css') }}">
+		<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Hello there</title>
+
+	</head>
+	<body>
+		<header>
+			<h1 id="title">Hello World</h1>
+		</header>
+		<main>
+		<p>Hello gamers</p>
+		
+		<form action="/submit" method="post">
+			<label for="namefield">Name:</label>
+			<input type="text" id="namefield" name="name">
+			<label for="agefield">Age:</label>
+			<input type="number" id="agefield" name="age">
+			<br><br>
+			<p>Do you like cats or dogs?</p>
+			<input type="checkbox" id="choice1" name="choice1" value="Cats">
+			<label for="choice1">Cats are better</label><br>
+			<input type="checkbox" id="choice2" name="choice2" value="Dogs">
+			<label for="choice1">Dogs are better</label><br>
+			<br>
+			<input type="submit" value="Submit">
+			<br>
+		</form>
+
+		</main>
+ 	 </body>
+</html>
