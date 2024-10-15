@@ -12,7 +12,8 @@ def submit():
 	
 	input_pet_1 = request.form.get("choice1")
 	input_pet_2 = request.form.get("choice2")
-	
+
+	# Show different page depending on choice
 	if input_pet_1 and input_pet_2:
 		preference = "You like both cats and dogs!"
 		show = "hello.html"
@@ -25,6 +26,5 @@ def submit():
 	else:
 		preference = "You don't like cats or dogs :("
 		show = "hello_neither.html"
-		
 	
 	return render_template(show, name=input_name, age=input_age, pet=preference)
