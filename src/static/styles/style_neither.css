@@ -9,8 +9,8 @@ body {
 body > header {
 	margin: 10px;
 	border-radius: 15px;
-	background-color: SaddleBrown;
-	color: GreenYellow;
+	background-color: BlueViolet;
+	color: GhostWhite;
 	display: flex;
 	justify-content: space-around;
 }
@@ -20,7 +20,7 @@ body > main {
 	padding: 30px;
 	border-radius: 15px;
 	color: black;
-	background-color: rgba(253, 245, 230, 0.9);
+	background-color: rgba(255, 240, 245, 0.9);
 }
 .center {
   display: block;
