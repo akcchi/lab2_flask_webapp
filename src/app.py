@@ -35,7 +35,7 @@ def submit():
 
 @app.route("/query", methods=["GET"])
 def process_query():
-    query = request.args.get("q")
+    query = request.query_string
     if query == "dinosaurs":
         query = "Dinosaurs ruled the Earth 200 illion years ago"
     elif query == "asteroids":
