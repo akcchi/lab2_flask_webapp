@@ -29,5 +29,5 @@ def submit():
     else:
         pref = "You don't like cats or dogs :("
         show = "hello_neither.html"
-
+THIS IS RANDOM TEXT
     return render_template(show, name=input_name, age=input_age, pet=pref)
