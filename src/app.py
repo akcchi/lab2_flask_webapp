@@ -3,13 +3,14 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
+# Function takes in query value and returns corresponding result
 def process_query(query):
     if query == "dinosaurs":
         ans = "Dinosaurs ruled the Earth 200 million years ago"
     elif query == "asteroids":
         ans = "Unknown"
     else:
-        ans = "No query provided"
+        ans = "Invalid query provided"
     return f"{ans}"
 
 
