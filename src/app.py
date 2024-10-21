@@ -37,9 +37,9 @@ def submit():
 def process_query():
     query = request.args.get['q']
     if query == "dinosaurs":
-        query = "Dinosaurs ruled the Earth 200 illion years ago"
+        ans = "Dinosaurs ruled the Earth 200 illion years ago"
     elif query == "asteroids":
-        query = "Unknown"
+        ans = "Unknown"
     else:
-        query = "No query provided"
-    return f'Your ans: {query}'
+        ans = "No query provided"
+    return {{ ans }}
