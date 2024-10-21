@@ -33,13 +33,16 @@ def submit():
     return render_template(show, name=input_name, age=input_age, pet=pref)
 
 
-@app.route("/query", methods=["GET"])
+@app.route("/query")
 def process_query():
-    query = request.query_string
+    query = request.args.get['q']
     if query == "dinosaurs":
         query = "Dinosaurs ruled the Earth 200 illion years ago"
+        out = query
     elif query == "asteroids":
         query = "Unknown"
+        out = query
     else:
         query = "No query provided"
-    return render_template(query.html, query=query)
+        out = query
+    return render_template(query.html, show=out)
