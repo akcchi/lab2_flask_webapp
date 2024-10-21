@@ -25,8 +25,8 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: 3.12
-      - name: Install pytest
-        run: pip install pytest
+      - name: Install packages
+        run: pip install pytest flask
       - name: Run unit test using pytest
         run: pytest src/*.py
 
