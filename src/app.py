@@ -33,7 +33,7 @@ def submit():
     return render_template(show, name=input_name, age=input_age, pet=pref)
 
 
-@app.route("/query")
+@app.route("/query", methods=["GET"])
 def process_query():
     query = request.args.get("q")
     if query == "dinosaurs":
