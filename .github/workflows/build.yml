@@ -21,7 +21,7 @@ jobs:
     steps:
         - name: Checkout
           uses: actions/checkout@v4
-        - name: name: ImPaaS-Deploy
+        - name: ImPaaS-Deploy
           uses: /impaas/impaas-deploy@v3
           with: 
             app-name: acc224-sse-app
