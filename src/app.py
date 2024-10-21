@@ -38,11 +38,8 @@ def process_query():
     query = request.args.get['q']
     if query == "dinosaurs":
         query = "Dinosaurs ruled the Earth 200 illion years ago"
-        out = '<h1>Answer: {} </h1>'.format(query)
     elif query == "asteroids":
         query = "Unknown"
-        out = '<h1>Answer: {} </h1>'.format(query)
     else:
         query = "No query provided"
-        out = '<h1>Answer: {} </h1>'.format(query)
-    return out
+    return f'Your ans: {query}'
