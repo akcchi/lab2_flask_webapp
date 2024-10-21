@@ -31,3 +31,15 @@ def submit():
         show = "hello_neither.html"
 
     return render_template(show, name=input_name, age=input_age, pet=pref)
+
+
+@app.route("/query")
+def process_query():
+    query = request.args.get("q")
+    if query == "dinosaurs":
+        query = "Dinosaurs ruled the Earth 200 illion years ago"
+    elif query == "asteroids":
+        query = "Unknown"
+    else:
+        query = "No query provided"
+    return render_template(query.html, query=query)
