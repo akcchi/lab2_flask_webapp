@@ -37,7 +37,7 @@ def submit():
 def process_query():
     query = request.args.get('q')
     if query == "dinosaurs":
-        ans = "Dinosaurs ruled the Earth 200 illion years ago"
+        ans = "Dinosaurs ruled the Earth 200 million years ago"
     elif query == "asteroids":
         ans = "Unknown"
     else:
