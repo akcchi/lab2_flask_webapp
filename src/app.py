@@ -42,4 +42,4 @@ def process_query():
         ans = "Unknown"
     else:
         ans = "No query provided"
-    return {{ ans }}
+    return {ans}
