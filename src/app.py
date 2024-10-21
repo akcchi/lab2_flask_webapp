@@ -18,16 +18,16 @@ def submit():
 
     # Show different page depending on choice
     if input_pet_1 and input_pet_2:
-        preference = "You like both cats and dogs!"
+        pref = "You like both cats and dogs!"
         show = "hello.html"
     elif input_pet_1:
-        preference = "Cats are better!"
+        pref = "Cats are better!"
         show = "hello_cat.html"
     elif input_pet_2:
-        preference = "Dogs are better!"
+        pref = "Dogs are better!"
         show = "hello_dog.html"
     else:
-        preference = "You don't like cats or dogs :("
+        pref = "You don't like cats or dogs :("
         show = "hello_neither.html"
 
-    return render_template(show,name=input_name,age=input_age,pet=preference)
+    return render_template(show, name=input_name, age=input_age, pet=pref)
