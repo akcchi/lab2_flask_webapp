@@ -30,4 +30,4 @@ def submit():
         preference = "You don't like cats or dogs :("
         show = "hello_neither.html"
 
-    return render_template(show, name=input_name, age=input_age, pet=preference)
+    return render_template(show,name=input_name,age=input_age,pet=preference)
