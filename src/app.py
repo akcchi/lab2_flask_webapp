@@ -3,6 +3,16 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
+def process_query(query):
+    if query == "dinosaurs":
+        ans = "Dinosaurs ruled the Earth 200 million years ago"
+    elif query == "asteroids":
+        ans = "Unknown"
+    else:
+        ans = "No query provided"
+    return f"{ans}"
+
+
 @app.route("/")
 def hello_world():
     return render_template("index.html")
@@ -34,12 +44,6 @@ def submit():
 
 
 @app.route("/query", methods=["GET"])
-def process_query():
-    query = request.args.get('q')
-    if query == "dinosaurs":
-        ans = "Dinosaurs ruled the Earth 200 million years ago"
-    elif query == "asteroids":
-        ans = "Unknown"
-    else:
-        ans = "No query provided"
-    return f'{ans}'
+def query():
+    query = request.args.get("q")
+    return process_query(query)
