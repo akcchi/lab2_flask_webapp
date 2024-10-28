@@ -12,7 +12,7 @@ def process_query(query):
     elif "multiplied" in query:
         ans = str(98)
     elif "prime" in query:
-        ans = 53
+        ans = str(41)
     elif "power" in query:
         ans = str(1)
     else:
@@ -50,7 +50,7 @@ def submit():
     return render_template(show, name=input_name, age=input_age, pet=pref)
 
 
-@app.route("/query")
+@app.route("/query", methods=["GET"])
 def query():
-    query = request.args.get("q", "")
+    query = request.args.get("q")
     return process_query(query)
