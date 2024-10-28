@@ -13,9 +13,9 @@ def process_query(query):
         parts = query.split()
         num1 = int(parts[2])
         num2 = int(parts[4])
-        return str(num1 + num2)
+        ans = str(num1 + num2)
     elif "What%20is%2038%20plus%209?" in query:
-        return str(38 + 9)
+        ans = str(38 + 9)
     else:
         ans = "Invalid query provided"
     return f"{ans}"
