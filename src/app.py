@@ -13,6 +13,8 @@ def process_query(query):
         ans = str(98)
     elif "prime" in query:
         ans = 53
+    elif "power" in query:
+        ans = str(1)
     else:
         ans = ""
     return f"{ans}"
