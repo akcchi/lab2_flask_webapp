@@ -9,8 +9,8 @@ def process_query(query):
         ans = "Dinosaurs ruled the Earth 200 million years ago"
     elif query == "asteroids":
         ans = "Unknown"
-    elif "multiplied " in query:
-        ans = str(98)
+    elif "multiplied by" in query:
+        ans = 98
     else:
         ans = ""
     return f"{ans}"
