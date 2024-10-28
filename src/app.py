@@ -15,7 +15,7 @@ def process_query(query):
         ans = 10
     else:
         ans = ""
-    return ans
+    return f"{ans}"
 
 
 @app.route("/")
@@ -50,5 +50,5 @@ def submit():
 
 @app.route("/query")
 def query():
-    query = request.args.get("q", "")
+    query = request.args.get("*", "")
     return process_query(query)
