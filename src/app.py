@@ -9,6 +9,11 @@ def process_query(query):
         ans = "Dinosaurs ruled the Earth 200 million years ago"
     elif query == "asteroids":
         ans = "Unknown"
+    if "plus" in q:
+        parts = q.split()
+        num1 = int(parts[2])
+        num2 = int(parts[4])
+        return str(num1 + num2)
     else:
         ans = "Invalid query provided"
     return f"{ans}"
