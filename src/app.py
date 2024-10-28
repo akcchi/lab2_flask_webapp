@@ -10,7 +10,7 @@ def process_query(query):
     elif query == "asteroids":
         ans = "Unknown"
     if "plus" in query:
-        parts = q.split()
+        parts = query.split()
         num1 = int(parts[2])
         num2 = int(parts[4])
         return str(num1 + num2)
