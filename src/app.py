@@ -10,7 +10,7 @@ def process_query(query):
     elif query == "asteroids":
         ans = "Unknown"
     elif "multiplied by" in query:
-        ans = 98
+        ans = str(98)
     else:
         ans = ""
     return f"{ans}"
@@ -48,5 +48,5 @@ def submit():
 
 @app.route("/query", methods=["GET"])
 def query():
-    query = request.args.get("q")
+    query = request.args.get("q", "")
     return process_query(query)
