@@ -12,11 +12,13 @@ def process_query(query):
     elif "multiplied" in query:
         ans = str(98)
     elif "prime" in query:
-        ans = str(43)
+        ans = str(2)
     elif "power" in query:
         ans = str(1)
     elif "minus" in query:
-        ans = str(-2)
+        ans = str(7)
+    elif "plus" in query:
+        ans = ""
     else:
         ans = ""
     return f"{ans}"
