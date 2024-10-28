@@ -50,5 +50,8 @@ def submit():
 
 @app.route("/query")
 def query():
-    query = request.args.get("*", "")
+    #query = request.args.get("*", "")
+    dict = request.args.to_dict()
+    for key, value in dict.items():
+        query = {value}
     return process_query(query)
