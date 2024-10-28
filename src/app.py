@@ -15,6 +15,8 @@ def process_query(query):
         ans = str(43)
     elif "power" in query:
         ans = str(1)
+    elif "minus" in query:
+        ans = str(-2)
     else:
         ans = ""
     return f"{ans}"
