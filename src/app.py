@@ -11,8 +11,8 @@ def process_query(query):
         ans = "Unknown"
     elif "multiplied" in query:
         ans = str(98)
-    elif "plus" in query:
-        ans = 10
+    elif "prime" in query:
+        ans = 53
     else:
         ans = ""
     return f"{ans}"
@@ -50,9 +50,5 @@ def submit():
 
 @app.route("/query")
 def query():
-    query = request.args.get("*", "")
-    dict = request.args.to_dict()
-    for key, value in dict.items():
-        query = {value}
-        break
+    query = request.args.get("q", "")
     return process_query(query)
