@@ -12,10 +12,10 @@ def process_query(query):
     elif "multiplied" in query:
         ans = str(98)
     elif "plus" in query:
-        ans = str(10)
+        ans = 10
     else:
         ans = ""
-    return f"{ans}"
+    return ans
 
 
 @app.route("/")
