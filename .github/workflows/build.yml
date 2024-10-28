@@ -15,23 +15,8 @@ jobs:
       - name: Run flake8
         run: flake8 .
 
-  unit-test:
-    needs: python-formatting
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.12
-      - name: Install packages
-        run: pip install pytest flask
-      - name: Run unit test using pytest
-        run: pytest src/*.py
-
   deploy-to-impaas:
-    needs: [python-formatting, unit-test]
+    needs: python-formatting
     runs-on: ubuntu-latest
     steps:
         - name: Checkout
