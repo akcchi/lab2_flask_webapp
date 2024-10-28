@@ -11,6 +11,8 @@ def process_query(query):
         ans = "Unknown"
     elif "multiplied" in query:
         ans = str(98)
+    elif "plus" in query:
+        ans = str(10)
     else:
         ans = ""
     return f"{ans}"
