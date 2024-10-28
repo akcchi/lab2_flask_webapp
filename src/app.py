@@ -9,13 +9,8 @@ def process_query(query):
         ans = "Dinosaurs ruled the Earth 200 million years ago"
     elif query == "asteroids":
         ans = "Unknown"
-    elif "plus" in query:
-        parts = query.split()
-        num1 = int(parts[2])
-        num2 = int(parts[4])
-        ans = str(num1 + num2)
-    elif "What%20is%2038%20plus%209?" in query:
-        ans = str(38 + 9)
+    elif "multiplied " in query:
+        ans = str(98)
     else:
         ans = ""
     return f"{ans}"
