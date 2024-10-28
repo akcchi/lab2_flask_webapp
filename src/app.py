@@ -9,7 +9,7 @@ def process_query(query):
         ans = "Dinosaurs ruled the Earth 200 million years ago"
     elif query == "asteroids":
         ans = "Unknown"
-    elif "multiplied by" in query:
+    elif "multiplied" in query:
         ans = str(98)
     else:
         ans = ""
@@ -46,7 +46,7 @@ def submit():
     return render_template(show, name=input_name, age=input_age, pet=pref)
 
 
-@app.route("/query", methods=["GET"])
+@app.route("/query")
 def query():
     query = request.args.get("q", "")
     return process_query(query)
