@@ -58,4 +58,4 @@ def hello_user():
 @app.route("/submit_user", methods=["POST"])
 def submit_user():
     input_name = request.form.get("user")
-    return render_template(result_user.html, user=input_name)
+    return render_template("result_user.html", user=input_name)
