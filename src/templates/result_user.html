@@ -13,7 +13,7 @@
     </header>
     
     <main>
-        <h2>Your GitHub username: {{ user }}</h2>
+        <h2 style="text-align:center">Your GitHub username:<br>{{ user }}</h2>
 <!--
         <ul>
         {% for item in repo_list %}
@@ -33,11 +33,11 @@
         </ul>
 -->
         <article>
-        <hgroup><h2>Your public GitHub repos:</h2></hgroup>
+        <hgroup><h2 style="text-align:center">Your public GitHub repos:</h2></hgroup>
         <main>
         {% for name, info in temp_dict.items() %}
-        <h3>{{name}}</h3>
-        <h4>Latest commit info:</h4>
+        <h2 style="color:Indigo;">{{name}}</h2>
+        <h3>Latest commit info:</h3>
         <ul>
             {% for item in info %}
             <li>{{item}}</li>

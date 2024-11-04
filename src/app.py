@@ -31,19 +31,39 @@ def get_commit_info(user, repo):
         commits = response.json()
 
         for entry in commits:
-            # author = ((entry["commit"])["author"])["name"]
+            link = entry["html_url"]
+            link = (
+                f'<a href="{link}" target="_blank">Direct link to commit</a>')
+            sha = entry["sha"]
+            sha = "Commit ID (SHA hash): " + sha
+
+            author = ((entry["commit"])["author"])["name"]
+            author = "Commit author: " + author
+
             # date = ((entry["commit"])["author"])["date"]
-            # msg = (entry["commit"])["message"]
+
+            msg = (entry["commit"])["message"]
+            msg = "Commit message: " + msg
+
             temp_timestamp = ((entry["commit"])["author"])["date"]
             commit_date, temp_time = temp_timestamp.split("T")
             commit_time = temp_time.rstrip("Z")
             commit_time += " UTC"
+            commit_date = "Commit date: " + commit_date
+            commit_time = "Commit time: " + commit_time
 
-            temp_return.append(entry["sha"])
-            temp_return.append(((entry["commit"])["author"])["name"])
+            # temp_return.append(entry["sha"])
+            # temp_return.append(((entry["commit"])["author"])["name"])
+            # temp_return.append(commit_date)
+            # temp_return.append(commit_time)
+            # temp_return.append((entry["commit"])["message"])
+            temp_return.append(sha)
+            temp_return.append(author)
             temp_return.append(commit_date)
             temp_return.append(commit_time)
-            temp_return.append((entry["commit"])["message"])
+            temp_return.append(msg)
+            temp_return.append(link)
+
             break  # Get only latest commit
 
     else:
