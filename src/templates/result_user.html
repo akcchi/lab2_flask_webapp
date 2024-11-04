@@ -15,6 +15,12 @@
 	<main>
 	<p>Username: {{ user }}</p>
         <br>
+
+        {% if repo_list %}
+        <li>{{ repo_list }}</li>
+        {% endif %}
+        <br>
+
 	</main>
 
 </body>
