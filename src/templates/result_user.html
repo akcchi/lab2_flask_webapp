@@ -16,9 +16,9 @@
 	<p>Username: {{ user }}</p>
         <br>
 
-        {% if repo_list %}
-        <li>{{ repo_list }}</li>
-        {% endif %}
+        {% for repo in repo_list %}
+        <li>{{ repo_list[repo] }}</li>
+        {% endfor %}
         <br>
 
 	</main>
