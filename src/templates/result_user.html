@@ -40,7 +40,7 @@
         <h3>Latest commit info:</h3>
         <ul>
             {% for item in info %}
-            <li>{{item}}</li>
+            <li>{{ item|safe }}</li>
             {% endfor %}
         </ul>
         {% endfor %}
