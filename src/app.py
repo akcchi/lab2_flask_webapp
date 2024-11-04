@@ -24,7 +24,8 @@ def process_query(query):
 #       commit time (UTC)
 #       commit message
 def get_commit_info(user, repo):
-    response = requests.get(f"https://api.github.com/repos/{user}/{repo}/commits")
+    response = requests.get(
+        f"https://api.github.com/repos/{user}/{repo}/commits")
     temp_return = []
     if response.status_code == 200:
         commits = response.json()
