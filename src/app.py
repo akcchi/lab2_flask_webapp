@@ -52,7 +52,7 @@ def query():
 
 @app.route("/lab5")
 def hello_user():
-    return hello_user.html
+    return render_template("hello_user.html")
 
 
 @app.route("/submit_user", methods=["POST"])
