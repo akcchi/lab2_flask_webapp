@@ -5,7 +5,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your submission</title>
+    <title>Some info about your public GitHub repos</title>
 </head>
 <body>
     <header>
@@ -13,8 +13,8 @@
     </header>
     
     <main>
-        <p>Username: {{ user }}</p>
-
+        <h2>Your GitHub username: {{ user }}</h2>
+<!--
         <ul>
         {% for item in repo_list %}
         <li>
@@ -31,12 +31,13 @@
         </li>
         {% endfor %}
         </ul>
-
+-->
         <article>
-        <hgroup><h2>Your repos</h2></hgroup>
+        <hgroup><h2>Your public GitHub repos:</h2></hgroup>
         <main>
         {% for name, info in temp_dict.items() %}
         <h3>{{name}}</h3>
+        <h4>Latest commit info:</h4>
         <ul>
             {% for item in info %}
             <li>{{item}}</li>
