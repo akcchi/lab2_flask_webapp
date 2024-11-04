@@ -15,6 +15,42 @@ def process_query(query):
     return f"{ans}"
 
 
+# Function to retrieve commit info for a GitHub repo
+# Parameters: GitHub owner username, GitHub repo name
+# Returns: list containing below data on latest commit
+#       commit sha/hash
+#       commit author name
+#       commit date
+#       commit time (UTC)
+#       commit message
+def get_commit_info(user, repo):
+    response = requests.get(f"https://api.github.com/repos/{user}/{repo}/commits")
+    temp_return = []
+    if response.status_code == 200:
+        commits = response.json()
+
+        for entry in commits:
+            # author = ((entry["commit"])["author"])["name"]
+            # date = ((entry["commit"])["author"])["date"]
+            # msg = (entry["commit"])["message"]
+            temp_timestamp = ((entry["commit"])["author"])["date"]
+            commit_date, temp_time = temp_timestamp.split("T")
+            commit_time = temp_time.rstrip("Z")
+            commit_time += " UTC"
+
+            temp_return.append(entry["sha"])
+            temp_return.append(((entry["commit"])["author"])["name"])
+            temp_return.append(commit_date)
+            temp_return.append(commit_time)
+            temp_return.append((entry["commit"])["message"])
+            break  # Get only latest commit
+
+    else:
+        temp_return = ["Commit info could not be retrieved"]
+
+    return temp_return
+
+
 @app.route("/")
 def hello_world():
     return render_template("index.html")
@@ -59,22 +95,20 @@ def hello_user():
 @app.route("/submit_user", methods=["POST"])
 def submit_user():
     repo_list = []
-    # repo_list = "<ul>"
+    repo_dict_big = {}
     in_name = request.form.get("user")
     response = requests.get(f"https://api.github.com/users/{in_name}/repos")
     if response.status_code == 200:
         repos = response.json()  # Returns list of repo entities
-        for repo in repos:
-            # temp_name = repo["full_name"]
-            # temp_append = "<li>" + str(temp_name) + " /li>"
-            # temp_append = str(temp_name)
-            # repo_list.append(temp_append)
-            repo_list.append(repo["full_name"])
-        # repo_list += "</ul>"
 
+        # List containing names
+        for repo in repos:
+            temp_commit_info = get_commit_info(in_name, repo["name"])
+            repo_list.append(repo["full_name"])
+            repo_dict_big[repo["full_name"]] = temp_commit_info
         # Dict containing name: updated time
         repo_dict = {repo["full_name"]: repo["updated_at"] for repo in repos}
 
     return render_template(
         "result_user.html", user=in_name, repo_list=repo_list,
-        repo_dict=repo_dict)
+        repo_dict=repo_dict, temp_dict=repo_dict_big)

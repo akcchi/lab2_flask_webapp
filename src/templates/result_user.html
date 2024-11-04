@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet"  href= "{{ url_for('static',filename='styles/style.css') }}">
-	<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Your submission</title>
+    <link rel="stylesheet"  href= "{{ url_for('static',filename='styles/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your submission</title>
 </head>
 <body>
-	<header>
-	<h1>Hello {{ user }}</h1>
-	</header>
-	
-	<main>
-	<p>Username: {{ user }}</p>
+    <header>
+    <h1>Hello {{ user }}</h1>
+    </header>
+    
+    <main>
+        <p>Username: {{ user }}</p>
 
         <ul>
-
         {% for item in repo_list %}
         <li>
             {{item}}
         </li>
         {% endfor %}
-
         </ul>
 
         <ul>
-
         {% for key, value in repo_dict.items() %}
         <li>
             {{key}}
             <ul><li>{{value}}</li></ul>
         </li>
         {% endfor %}
-
         </ul>
-        <br>
 
-	</main>
+        <article>
+        <hgroup><h2>Your repos</h2></hgroup>
+        <main>
+        {% for name, info in temp_dict.items() %}
+        <h3>{{key}}</h3>
+        <ul>
+            {% for item in info %}
+            <li>{{item}}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+        </main>
+        </article>
+
+    </main>
 
 </body>
 </html>
