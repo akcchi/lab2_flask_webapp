@@ -59,7 +59,7 @@ def hello_user():
 @app.route("/submit_user", methods=["POST"])
 def submit_user():
     in_name = request.form.get("user")
-    response = requests.get("https://api.github.com/users/{in_name}/repos")
+    response = requests.get(f"https://api.github.com/users/{in_name}/repos")
     if response.status_code == 200:
         repos = response.json()  # Returns list of repo entities
         for repo in repos:
