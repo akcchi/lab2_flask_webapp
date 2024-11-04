@@ -48,3 +48,14 @@ def submit():
 def query():
     query = request.args.get("q")
     return process_query(query)
+
+
+@app.route("/lab5")
+def hello_user():
+    return hello_user.html
+
+
+@app.route("/submit_user", methods=["POST"])
+def submit_user():
+    input_name = request.form.get("user")
+    return render_template(result_user.html, user=input_name)
