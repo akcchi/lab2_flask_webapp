@@ -13,36 +13,26 @@
     </header>
     
     <main>
-        <h2 style="text-align:center">Your GitHub username:<br>{{ user }}</h2>
-<!--
-        <ul>
-        {% for item in repo_list %}
-        <li>
-            {{item}}
-        </li>
-        {% endfor %}
-        </ul>
+        <h2 style="text-align:center">
+            Your GitHub username:<br>
+            <span style="color:Indigo">{{ user }}</span>
+        </h2>
 
-        <ul>
-        {% for key, value in repo_dict.items() %}
-        <li>
-            {{key}}
-            <ul><li>{{value}}</li></ul>
-        </li>
-        {% endfor %}
-        </ul>
--->
         <article>
-        <hgroup><h2 style="text-align:center">Your public GitHub repos:</h2></hgroup>
+        <hgroup>
+            <h2 style="text-align:center">Your public GitHub repos:</h2>
+        </hgroup>
+
         <main>
         {% for name, info in temp_dict.items() %}
         <h2 style="color:Indigo;">{{name}}</h2>
         <h3>Latest commit info:</h3>
-        <ul>
+        <table>
             {% for item in info %}
-            <li>{{ item|safe }}</li>
+            <tr>{{ item|safe }}</tr>
             {% endfor %}
-        </ul>
+        </table>
+        <br>
         {% endfor %}
         </main>
         </article>

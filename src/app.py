@@ -33,24 +33,26 @@ def get_commit_info(user, repo):
         for entry in commits:
             link = entry["html_url"]
             link = (
-                f'<a href="{link}" target="_blank">Direct link to commit</a>')
+                f'<a href="{link}" target="_blank">GitHub link&#128279</a>')
+            link = "<th>Direct link to commit</th>" + f"<td>{link}</td>"
+
             sha = entry["sha"]
-            sha = "Commit ID (SHA hash): " + sha
+            sha = "<th>Commit ID (SHA hash)</th>" + f"<td>{sha}</td>"
 
             author = ((entry["commit"])["author"])["name"]
-            author = "Commit author: " + author
+            author = "<th>Commit author</th>" + f"<td>{author}</td>"
 
             # date = ((entry["commit"])["author"])["date"]
 
             msg = (entry["commit"])["message"]
-            msg = "Commit message: " + msg
+            msg = "<th>Commit message</th>" + f"<td>{msg}</td>"
 
             temp_timestamp = ((entry["commit"])["author"])["date"]
             commit_date, temp_time = temp_timestamp.split("T")
             commit_time = temp_time.rstrip("Z")
             commit_time += " UTC"
-            commit_date = "Commit date: " + commit_date
-            commit_time = "Commit time: " + commit_time
+            commit_date = "<th>Commit date</th>" + f"<td>{commit_date}</td>"
+            commit_time = "<th>Commit time</th>" + f"<td>{commit_time}</td>"
 
             # temp_return.append(entry["sha"])
             # temp_return.append(((entry["commit"])["author"])["name"])
