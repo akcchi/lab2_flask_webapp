@@ -66,5 +66,5 @@ def submit_user():
         for repo in repos:
             repo_list.append(repo["full_name"])
 
-    return render_template("result_user.html", user=in_name,
-        repo_list=repo_list)
+    return render_template(
+        "result_user.html", user=in_name, repo_list=repo_list)
