@@ -13,19 +13,19 @@
     </header>
     
     <main>
-        <h2 style="text-align:center">
-            Your GitHub username:<br>
+        <h2 style="text-align:left">
+            Your GitHub username: 
             <span style="color:Indigo">{{ user }}</span>
         </h2>
 
         <article>
         <hgroup>
-            <h2 style="text-align:center">Your public GitHub repos:</h2>
+            <h2 style="text-align:left">Your public GitHub repos:</h2>
         </hgroup>
 
         <main>
         {% for name, info in temp_dict.items() %}
-        <h2 style="color:Indigo;">{{name}}</h2>
+        <h2 style="color:Indigo;">{{ name|safe }}</h2>
         <h3>Latest commit info:</h3>
         <table>
             {% for item in info %}

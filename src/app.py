@@ -34,25 +34,34 @@ def get_commit_info(user, repo):
             link = entry["html_url"]
             link = (
                 f'<a href="{link}" target="_blank">GitHub link&#128279</a>')
-            link = "<th>Direct link to commit</th>" + f"<td>{link}</td>"
+            link = (
+                '<th align="left">Direct link to commit</th>' +
+                f"<td>{link}</td>")
 
             sha = entry["sha"]
-            sha = "<th>Commit ID (SHA hash)</th>" + f"<td>{sha}</td>"
+            sha = (
+                '<th align="left">Commit ID (SHA hash)</th>' +
+                f"<td>{sha}</td>")
 
             author = ((entry["commit"])["author"])["name"]
-            author = "<th>Commit author</th>" + f"<td>{author}</td>"
+            author = (
+                '<th align="left">Commit author</th>' + f"<td>{author}</td>")
 
             # date = ((entry["commit"])["author"])["date"]
 
             msg = (entry["commit"])["message"]
-            msg = "<th>Commit message</th>" + f"<td>{msg}</td>"
+            msg = '<th align="left">Commit message</th>' + f"<td>{msg}</td>"
 
             temp_timestamp = ((entry["commit"])["author"])["date"]
             commit_date, temp_time = temp_timestamp.split("T")
             commit_time = temp_time.rstrip("Z")
             commit_time += " UTC"
-            commit_date = "<th>Commit date</th>" + f"<td>{commit_date}</td>"
-            commit_time = "<th>Commit time</th>" + f"<td>{commit_time}</td>"
+            commit_date = (
+                '<th align="left">Commit date</th>' +
+                f"<td>{commit_date}</td>")
+            commit_time = (
+                '<th align="left">Commit time</th>' +
+                f"<td>{commit_time}</td>")
 
             # temp_return.append(entry["sha"])
             # temp_return.append(((entry["commit"])["author"])["name"])
@@ -117,21 +126,22 @@ def hello_user():
 
 @app.route("/submit_user", methods=["POST"])
 def submit_user():
-    repo_list = []
+    # repo_list = []
     repo_dict_big = {}
     in_name = request.form.get("user")
     response = requests.get(f"https://api.github.com/users/{in_name}/repos")
     if response.status_code == 200:
         repos = response.json()  # Returns list of repo entities
 
-        # List containing names
         for repo in repos:
             temp_commit_info = get_commit_info(in_name, repo["name"])
-            repo_list.append(repo["full_name"])
-            repo_dict_big[repo["full_name"]] = temp_commit_info
+            # repo_list.append(repo["full_name"])
+            temp_name = repo["full_name"]
+            temp_link = repo["html_url"]
+            key = f'<a href="{temp_link}" target="_blank">{temp_name}</a>'
+            repo_dict_big[key] = temp_commit_info
         # Dict containing name: updated time
-        repo_dict = {repo["full_name"]: repo["updated_at"] for repo in repos}
+        # repo_dict = {repo["full_name"]: repo["updated_at"] for repo in repos}
 
     return render_template(
-        "result_user.html", user=in_name, repo_list=repo_list,
-        repo_dict=repo_dict, temp_dict=repo_dict_big)
+        "result_user.html", user=in_name, temp_dict=repo_dict_big)
