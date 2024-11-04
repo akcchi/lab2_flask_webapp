@@ -64,7 +64,9 @@ def submit_user():
     if response.status_code == 200:
         repos = response.json()  # Returns list of repo entities
         for repo in repos:
-            repo_list.append(repo["full_name"])
+            temp_name = repo["full_name"]
+            temp_append = f"<li>{temp_name}</li>"
+            repo_list.append(temp_append)
 
     return render_template(
         "result_user.html", user=in_name, repo_list=repo_list)

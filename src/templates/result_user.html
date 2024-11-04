@@ -16,9 +16,11 @@
 	<p>Username: {{ user }}</p>
         <br>
 
+        <p>
         {% for repo in repo_list %}
-        <p> {{ repo }} </p>
-        {% endfor %}
+            {{ repo }}
+            {% endfor %}
+        </p>
         <br>
 
 	</main>
