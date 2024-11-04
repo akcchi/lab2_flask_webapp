@@ -58,18 +58,19 @@ def hello_user():
 
 @app.route("/submit_user", methods=["POST"])
 def submit_user():
-    # repo_list = []
-    repo_list = "<ul>"
+    repo_list = []
+    # repo_list = "<ul>"
     in_name = request.form.get("user")
     response = requests.get(f"https://api.github.com/users/{in_name}/repos")
     if response.status_code == 200:
         repos = response.json()  # Returns list of repo entities
         for repo in repos:
             temp_name = repo["full_name"]
-            temp_append = "<li>" + str(temp_name) + " /li>"
+            # temp_append = "<li>" + str(temp_name) + " /li>"
+            temp_append = str(temp_name)
             # repo_list.append(temp_append)
-            repo_list += temp_append
-        repo_list += "</ul>"
+            repo_list.append(temp_append)
+        # repo_list += "</ul>"
 
     return render_template(
         "result_user.html", user=in_name, repo_list=repo_list)
