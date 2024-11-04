@@ -36,7 +36,7 @@
         <hgroup><h2>Your repos</h2></hgroup>
         <main>
         {% for name, info in temp_dict.items() %}
-        <p>{{key}}</p>
+        <h3>{{name}}</h3>
         <ul>
             {% for item in info %}
             <li>{{item}}</li>
