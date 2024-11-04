@@ -14,13 +14,23 @@
 	
 	<main>
 	<p>Username: {{ user }}</p>
-        <br>
 
         <ul>
 
         {% for item in repo_list %}
         <li>
             {{item}}
+        </li>
+        {% endfor %}
+
+        </ul>
+
+        <ul>
+
+        {% for key, value in repo_dict.items() %}
+        <li>
+            {{key}}
+            <ul><li>{{value}}</li></ul>
         </li>
         {% endfor %}
 

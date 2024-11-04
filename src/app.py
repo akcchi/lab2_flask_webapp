@@ -72,5 +72,9 @@ def submit_user():
             repo_list.append(temp_append)
         # repo_list += "</ul>"
 
+        # Dict containing name: updated time
+        repo_dict = {repo["full_name"]: repo["updated_at"] for repo in repos}
+
     return render_template(
-        "result_user.html", user=in_name, repo_list=repo_list)
+        "result_user.html", user=in_name, repo_list=repo_list,
+        repo_dict=repo_dict)
