@@ -26,7 +26,7 @@ jobs:
         with:
           python-version: 3.12
       - name: Install packages
-        run: pip install pytest flask
+        run: pip install -r requirements.txt
       - name: Run unit test using pytest
         run: pytest src/*.py
 
