@@ -16,11 +16,11 @@
 	<p>Username: {{ user }}</p>
         <br>
 
-        <p>
+        <ul>
         {% for repo in repo_list %}
-            {{ repo }}
-            {% endfor %}
-        </p>
+            <li> {{ repo.name }} </li>
+        {% endfor %}
+        </ul>
         <br>
 
 	</main>

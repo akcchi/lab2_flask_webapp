@@ -65,7 +65,7 @@ def submit_user():
         repos = response.json()  # Returns list of repo entities
         for repo in repos:
             temp_name = repo["full_name"]
-            temp_append = f"<li>{temp_name}</li>"
+            temp_append = f"{temp_name}"
             repo_list.append(temp_append)
 
     return render_template(
