@@ -65,11 +65,11 @@ def submit_user():
     if response.status_code == 200:
         repos = response.json()  # Returns list of repo entities
         for repo in repos:
-            temp_name = repo["full_name"]
+            # temp_name = repo["full_name"]
             # temp_append = "<li>" + str(temp_name) + " /li>"
-            temp_append = str(temp_name)
+            # temp_append = str(temp_name)
             # repo_list.append(temp_append)
-            repo_list.append(temp_append)
+            repo_list.append(repo["full_name"])
         # repo_list += "</ul>"
 
         # Dict containing name: updated time
