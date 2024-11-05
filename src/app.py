@@ -137,7 +137,7 @@ def submit_user():
         repos = response.json()  # Returns list of repo entities
 
         for repo in repos:
-            temp_commit_info = get_commit_info(in_name, repo["name"])
+            temp_commit_info = get_commit_info(user_plain, repo["name"])
             # repo_list.append(repo["full_name"])
             temp_name = repo["full_name"]
             temp_link = repo["html_url"]
