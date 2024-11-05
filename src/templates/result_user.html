@@ -27,11 +27,9 @@
         {% for name, info in temp_dict.items() %}
         <h2 style="color:Red;">{{ name|safe }}</h2>
         <h3>Latest commit info:</h3>
-        <table>
-            <colgroup>
-                <col style="width: 25%;" />
-                <col style="width: 75%;" />
-            </colgroup>
+        <table style="table-layout:fixed; width:100%;">
+            <col style="width: 22%;" />
+            <col style="width: 78%;" />
             {% for item in info %}
             <tr>{{ item|safe }}</tr>
             {% endfor %}
