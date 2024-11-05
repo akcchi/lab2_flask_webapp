@@ -129,8 +129,11 @@ def submit_user():
     # repo_list = []
     repo_dict_big = {}
     in_name = request.form.get("user")
+    user_plain = in_name
     response = requests.get(f"https://api.github.com/users/{in_name}/repos")
     if response.status_code == 200:
+        user_link = f"https://github.com/{in_name}"
+        in_name = f'<a href="{user_link}" target="_blank">{in_name}</a>'
         repos = response.json()  # Returns list of repo entities
 
         for repo in repos:
@@ -142,6 +145,12 @@ def submit_user():
             repo_dict_big[key] = temp_commit_info
         # Dict containing name: updated time
         # repo_dict = {repo["full_name"]: repo["updated_at"] for repo in repos}
+    else:
+        in_name += (
+            " (USERNAME NOT FOUND/DOES NOT EXIST - " +
+            "no public repos to show)")
+        repo_dict_big["Nothing to show"] = ""
 
     return render_template(
-        "result_user.html", user=in_name, temp_dict=repo_dict_big)
+        "result_user.html", user=in_name, user_plain=user_plain,
+        temp_dict=repo_dict_big)
