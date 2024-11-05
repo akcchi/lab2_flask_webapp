@@ -149,7 +149,7 @@ def submit_user():
         in_name += (
             " (USERNAME NOT FOUND/DOES NOT EXIST - " +
             "no public repos to show)")
-        repo_dict_big["Nothing to show"] = ""
+        repo_dict_big["NOTHING TO SHOW"] = ""
 
     return render_template(
         "result_user.html", user=in_name, user_plain=user_plain,
