@@ -12,9 +12,9 @@
     <h1>Hello {{ user_plain }}!</h1>
     </header>
     
-    <main style="padding-left:100px; padding-right:100px;">
+    <main>
         <h2 style="text-align:left">
-            Your GitHub username: 
+            Your GitHub account: 
             <span style="color:Red">{{ user|safe }}</span>
         </h2>
 
@@ -26,7 +26,7 @@
         <main>
         {% for name, info in temp_dict.items() %}
         <h2 style="color:Red;">{{ name|safe }}</h2>
-        <h3>Latest commit info:</h3>
+        <h3>Most recent commit info:</h3>
         <table style="table-layout:fixed; width:100%;">
             <col style="width: 22%;" />
             <col style="width: 78%;" />

@@ -23,6 +23,7 @@ def process_query(query):
 #       commit date
 #       commit time (UTC)
 #       commit message
+#       commit link
 def get_commit_info(user, repo):
     response = requests.get(
         f"https://api.github.com/repos/{user}/{repo}/commits")
@@ -57,10 +58,10 @@ def get_commit_info(user, repo):
             commit_time = temp_time.rstrip("Z")
             commit_time += " UTC"
             commit_date = (
-                '<th align="left">Commit date</th>' +
+                '<th align="left">Commit date (YYYY-MM-DD)</th>' +
                 f"<td>{commit_date}</td>")
             commit_time = (
-                '<th align="left">Commit time</th>' +
+                '<th align="left">Commit time (hh:mm:ss)</th>' +
                 f"<td>{commit_time}</td>")
 
             # temp_return.append(entry["sha"])
@@ -145,10 +146,17 @@ def submit_user():
             repo_dict_big[key] = temp_commit_info
         # Dict containing name: updated time
         # repo_dict = {repo["full_name"]: repo["updated_at"] for repo in repos}
+    elif response.status_code == 403 or response.status_code == 429:
+        in_name += (
+            " (USER NOT FOUND: LIKELY RATE LIMIT ERROR/TRY AGAIN LATER)")
+        repo_dict_big["NOTHING TO SHOW"] = ""
+    elif "50" in str(response.status_code):
+        in_name += (
+            " (USER NOT FOUND: GitHub API DOWN)")
+        repo_dict_big["NOTHING TO SHOW"] = ""
     else:
         in_name += (
-            " (USERNAME NOT FOUND/DOES NOT EXIST - " +
-            "no public repos to show)")
+            " (USER NOT FOUND/DOES NOT EXIST)")
         repo_dict_big["NOTHING TO SHOW"] = ""
 
     return render_template(
